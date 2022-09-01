@@ -22,8 +22,8 @@ export default function TaskList() {
 
   const pinTask = (value) => {
 
-    //var task = tasks.find((t), t.id === value)
-    //console.log(task.id)
+    //const task = tasks.find((t) => t.id === value)
+    //console.log(task)
 
    // We're dispatching the Pinned event back to our store
     dispatch(updateTaskState({ id: value, newTaskState: 'TASK_PINNED' }));
