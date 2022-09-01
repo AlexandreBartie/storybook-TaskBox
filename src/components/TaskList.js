@@ -11,7 +11,7 @@ export default function TaskList() {
       ...state.taskbox.tasks.filter((t) => t.state !== 'TASK_PINNED'),
     ];
     const filteredTasks = tasksInOrder.filter(
-      (t) => t.state === 'TASK_INBOX' || t.state === 'TASK_PINNED'
+      (t) => t.state === 'TASK_INBOX' || t.state === 'TASK_PINNED' || t.state === 'TASK_ARCHIVED'
     );
     return filteredTasks;
   });
@@ -21,7 +21,11 @@ export default function TaskList() {
   const dispatch = useDispatch();
 
   const pinTask = (value) => {
-    // We're dispatching the Pinned event back to our store
+
+    //var task = tasks.find((t), t.id === value)
+    //console.log(task.id)
+
+   // We're dispatching the Pinned event back to our store
     dispatch(updateTaskState({ id: value, newTaskState: 'TASK_PINNED' }));
   };
   const archiveTask = (value) => {
