@@ -1,9 +1,9 @@
 import React from 'react';
 
-import InboxScreen from './InboxScreen';
-import store from '../lib/store';
+import TaskBox from './TaskBox';
+import store from '../../lib/store';
 import { rest } from 'msw';
-import { MockedState } from './TaskList.stories';
+import { MockedState } from '../../components/TaskList/TaskList.stories';
 
 import { Provider } from 'react-redux';
 
@@ -15,12 +15,12 @@ import {
 } from '@storybook/testing-library';
 
 export default {
-  component: InboxScreen,
-  title: 'InboxScreen',
+  component: TaskBox,
+  title: 'TaskBox',
   decorators: [(story) => <Provider store={store}>{story()}</Provider>],
 };
 
-const Template = () => <InboxScreen />;
+const Template = () => <TaskBox />;
 
 export const Default = Template.bind({});
 Default.parameters = {

@@ -1,9 +1,9 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { fetchTasks } from '../lib/store';
-import TaskList from './TaskList';
+import { fetchTasks } from '../../lib/store';
+import TaskList from '../../components/TaskList/TaskList';
 
-export default function InboxScreen() {
+export default function TaskBox() {
   const dispatch = useDispatch();
   // We're retrieving the error field from our updated store
   const { error } = useSelector((state) => state.taskbox);

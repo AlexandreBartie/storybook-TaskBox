@@ -1,7 +1,7 @@
 import React from 'react';
 
 import TaskList from './TaskList';
-import * as TaskStories from './Task.stories';
+import * as TaskStories from '../../cells/Task/Task.stories';
 
 import { Provider } from 'react-redux';
 

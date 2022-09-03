@@ -1,7 +1,7 @@
 import React from 'react';
-import Task from './Task';
+import Task from '../../cells/Task/Task';
 import { useDispatch, useSelector } from 'react-redux';
-import { updateTaskState } from '../lib/store';
+import { updateTaskState } from '../../lib/store';
 
 export default function TaskList() {
   // We're retrieving our state from the store
@@ -23,35 +23,6 @@ export default function TaskList() {
   const pinTask = (value) => SetStatus(value, 'TASK_PINNED')
 
   const archiveTask = (value) => SetStatus(value, 'TASK_ARCHIVED')
-
-  const pinuuuTask = (value) => {
-
-    // Find task by id
-    const task = tasks.find((t) => t.id === value)
-
-    if (task.state === 'TASK_INBOX')
-      // We're dispatching the Pinned event back to our store
-      dispatch(updateTaskState({ id: value, newTaskState: 'TASK_PINNED' }));
-    else
-      // We're dispatching the Pinned event back to our store
-      dispatch(updateTaskState({ id: value, newTaskState: 'TASK_INBOX' }));
-
-  };
-
-  
-  const archivuueTask = (value) => {
-
-    // Find task by id
-    const task = tasks.find((t) => t.id === value)
-
-    if (task.state === 'TASK_INBOX')
-      // We're dispatching the Pinned event back to our store
-      dispatch(updateTaskState({ id: value, newTaskState: 'TASK_ARCHIVED' }));
-      else
-      // We're dispatching the Pinned event back to our store
-      dispatch(updateTaskState({ id: value, newTaskState: 'TASK_INBOX' }));
-
-  };
 
   const SetStatus = (id, status) => {
 
