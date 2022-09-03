@@ -19,19 +19,54 @@ export default function TaskList() {
   const { status } = useSelector((state) => state.taskbox);
 
   const dispatch = useDispatch();
+ 
+  const pinTask = (value) => SetStatus(value, 'TASK_PINNED')
 
-  const pinTask = (value) => {
+  const archiveTask = (value) => SetStatus(value, 'TASK_ARCHIVED')
 
-    //const task = tasks.find((t) => t.id === value)
-    //console.log(task)
+  const pinuuuTask = (value) => {
 
-   // We're dispatching the Pinned event back to our store
-    dispatch(updateTaskState({ id: value, newTaskState: 'TASK_PINNED' }));
+    // Find task by id
+    const task = tasks.find((t) => t.id === value)
+
+    if (task.state === 'TASK_INBOX')
+      // We're dispatching the Pinned event back to our store
+      dispatch(updateTaskState({ id: value, newTaskState: 'TASK_PINNED' }));
+    else
+      // We're dispatching the Pinned event back to our store
+      dispatch(updateTaskState({ id: value, newTaskState: 'TASK_INBOX' }));
+
   };
-  const archiveTask = (value) => {
-    // We're dispatching the Archive event back to our store
-    dispatch(updateTaskState({ id: value, newTaskState: 'TASK_ARCHIVED' }));
+
+  
+  const archivuueTask = (value) => {
+
+    // Find task by id
+    const task = tasks.find((t) => t.id === value)
+
+    if (task.state === 'TASK_INBOX')
+      // We're dispatching the Pinned event back to our store
+      dispatch(updateTaskState({ id: value, newTaskState: 'TASK_ARCHIVED' }));
+      else
+      // We're dispatching the Pinned event back to our store
+      dispatch(updateTaskState({ id: value, newTaskState: 'TASK_INBOX' }));
+
   };
+
+  const SetStatus = (id, status) => {
+
+    // Find task by id
+    const task = tasks.find((t) => t.id === id)
+
+    if (task.state === 'TASK_INBOX')
+      // We're dispatching the Pinned event back to our store
+      dispatch(updateTaskState({ id: id, newTaskState: status }));
+      else
+      // We're dispatching the Pinned event back to our store
+      dispatch(updateTaskState({ id: id, newTaskState: 'TASK_INBOX' }));
+
+  };
+
   const LoadingRow = (
     <div className="loading-item">
       <span className="glow-checkbox" />
